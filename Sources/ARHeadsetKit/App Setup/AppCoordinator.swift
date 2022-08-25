@@ -32,6 +32,7 @@ open class AppCoordinator: NSObject, ObservableObject {
     }
     
     public internal(set) var appDescription: AppDescription
+    public internal(set) var handIsDetected: Bool = false
     
     @Published public var settingsIconIsHidden: Bool = false
     @Published var settingsAreShown: Bool = false
@@ -217,6 +218,12 @@ extension AppCoordinator: MTKViewDelegate {
         }
         
         renderer.update()
+        if renderer.usingLiDAR, renderer.allowingSceneReconstruction {
+            self.handIsDetected = renderer.handRenderer.detectionResults.isDetected
+        } else {
+                self.handIsDetected = renderer.handRenderer2D.detectionResults.isDetected
+            
+        }
         
         if renderer.touchingScreen {
             renderer.longPressingScreen = true
