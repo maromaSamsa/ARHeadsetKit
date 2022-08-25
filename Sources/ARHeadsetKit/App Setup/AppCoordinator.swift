@@ -221,7 +221,9 @@ extension AppCoordinator: MTKViewDelegate {
         if renderer.usingLiDAR, renderer.allowingSceneReconstruction {
             self.handIsDetected = renderer.handRenderer.detectionResults.isDetected
         } else {
+            if renderer.handRenderer2D.detectionResults != nil{
                 self.handIsDetected = renderer.handRenderer2D.detectionResults.isDetected
+            }
             
         }
         
