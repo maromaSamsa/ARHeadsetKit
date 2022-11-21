@@ -8,6 +8,7 @@
 #if !os(macOS)
 import Metal
 import Vision
+import ARKit
 
 extension HandRenderer {
     
@@ -15,6 +16,7 @@ extension HandRenderer {
         private(set) var optionStorage: UInt8
         var color: simd_half3 = .init(repeating: 0)
         
+        // find hand
         var isDetected: Bool {
             get { optionStorage & 1 != 0 }
             set {

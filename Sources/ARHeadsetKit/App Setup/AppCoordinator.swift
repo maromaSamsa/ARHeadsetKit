@@ -35,7 +35,7 @@ open class AppCoordinator: NSObject, ObservableObject {
     public internal(set) var handIsDetected: Bool = false
     
     @Published public var settingsIconIsHidden: Bool = false
-    @Published var settingsAreShown: Bool = false
+    @Published public internal(set) var settingsAreShown: Bool = false
     @Published var settingsShouldBeAnimated: Bool = false
     @Published var showingAppTutorial: Bool = false
     

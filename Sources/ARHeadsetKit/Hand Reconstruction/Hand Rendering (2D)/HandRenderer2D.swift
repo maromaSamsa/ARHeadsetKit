@@ -59,7 +59,7 @@ extension HandRenderer2D {
         
         DispatchQueue.global(qos: .default).async { [self] in
             try! handler.perform([ handPoseRequest ])
-            
+            //handPoseRequest.results?.first?.recognizedPoint(.)
             guard let observation = handPoseRequest.observations.first else {
                 pendingLocationReturn = { [self] in
                     detectionResults = HandDetectionResults()
