@@ -75,11 +75,11 @@ extension MainRenderer {
             sceneRenderer.asyncUpdateResources(frame: frame)
         } else {
             var waitingOnSegmentationTexture: Bool
-//            if allowingHandReconstruction {
-//                waitingOnSegmentationTexture = false
-//            } else {
+            if self.coordinator.showMirroredHand {
                 waitingOnSegmentationTexture = true
-//            }
+            } else {
+                waitingOnSegmentationTexture = false
+            }
             sceneRenderer2D.asyncUpdateResources(
                 waitingOnSegmentationTexture: waitingOnSegmentationTexture)
         }

@@ -39,6 +39,8 @@ open class AppCoordinator: NSObject, ObservableObject {
     @Published var settingsShouldBeAnimated: Bool = false
     @Published var showingAppTutorial: Bool = false
     
+    public var showMirroredHand = true
+    
     @Published var appTutorialCheck: AppTutorialCheck = .init()
     
     var canCloseTutorial = true
